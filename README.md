@@ -113,27 +113,27 @@ ngrok http 4000
 
 ## 4. API Reference (summary)
 
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| POST | `/api/auth/register` | — | Register a user |
-| POST | `/api/auth/login` | — | Login, returns JWT |
-| GET | `/api/auth/me` | JWT | Current user |
-| GET | `/api/auth/orders` | JWT | Current user's orders |
-| GET | `/api/products` | — | List products (paginated) |
-| GET | `/api/products/:id` | — | Product detail |
-| GET | `/api/products/:id/related` | — | DFS category-based recommendations |
-| POST | `/api/products` | JWT+Admin | Create product |
-| PUT | `/api/products/:id` | JWT+Admin | Update product |
-| DELETE | `/api/products/:id` | JWT+Admin | Delete product |
-| GET | `/api/categories` | — | Full category tree (Redis-cached) |
-| POST | `/api/categories` | JWT+Admin | Create category |
-| POST | `/api/orders` | JWT | Create order from cart items |
-| GET | `/api/orders/:id` | JWT | Order detail |
-| POST | `/api/payments/checkout` | JWT | Initiate payment (`{orderId, provider}`) |
-| POST | `/api/payments/:transactionId/confirm` | JWT | Confirm/execute payment |
-| GET | `/api/payments/:transactionId` | JWT | Query payment status |
-| POST | `/api/payments/stripe/webhook` | Stripe signature | Stripe webhook |
-| GET/POST | `/api/payments/bkash/callback` | — | bKash redirect callback |
+| Method   | Endpoint                               | Auth             | Description                              |
+| -------- | -------------------------------------- | ---------------- | ---------------------------------------- |
+| POST     | `/api/auth/register`                   | —                | Register a user                          |
+| POST     | `/api/auth/login`                      | —                | Login, returns JWT                       |
+| GET      | `/api/auth/me`                         | JWT              | Current user                             |
+| GET      | `/api/auth/orders`                     | JWT              | Current user's orders                    |
+| GET      | `/api/products`                        | —                | List products (paginated)                |
+| GET      | `/api/products/:id`                    | —                | Product detail                           |
+| GET      | `/api/products/:id/related`            | —                | DFS category-based recommendations       |
+| POST     | `/api/products`                        | JWT+Admin        | Create product                           |
+| PUT      | `/api/products/:id`                    | JWT+Admin        | Update product                           |
+| DELETE   | `/api/products/:id`                    | JWT+Admin        | Delete product                           |
+| GET      | `/api/categories`                      | —                | Full category tree (Redis-cached)        |
+| POST     | `/api/categories`                      | JWT+Admin        | Create category                          |
+| POST     | `/api/orders`                          | JWT              | Create order from cart items             |
+| GET      | `/api/orders/:id`                      | JWT              | Order detail                             |
+| POST     | `/api/payments/checkout`               | JWT              | Initiate payment (`{orderId, provider}`) |
+| POST     | `/api/payments/:transactionId/confirm` | JWT              | Confirm/execute payment                  |
+| GET      | `/api/payments/:transactionId`         | JWT              | Query payment status                     |
+| POST     | `/api/payments/stripe/webhook`         | Stripe signature | Stripe webhook                           |
+| GET/POST | `/api/payments/bkash/callback`         | —                | bKash redirect callback                  |
 
 Full Postman-style flow: register → browse `/api/products` → `POST /api/orders` → `POST /api/payments/checkout` with `provider: "stripe"` or `"bkash"` → for Stripe, confirm client-side with Stripe.js then rely on the webhook; for bKash, the user is redirected to `redirectUrl` and lands back on `/api/payments/bkash/callback`.
 

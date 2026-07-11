@@ -18,6 +18,7 @@ const app = express();
 
 app.use(helmet());
 app.use(cors({ origin: process.env.FRONTEND_URL || '*', credentials: true }));
+console.log("FRONTEND_URL =", process.env.FRONTEND_URL);
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 app.use(cookieParser());
 app.use(passport.initialize());

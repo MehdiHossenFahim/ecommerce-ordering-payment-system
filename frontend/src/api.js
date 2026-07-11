@@ -6,10 +6,15 @@ const api = axios.create({
 
 // Attach the stored JWT to every outgoing request, if present
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
+  // Skip ngrok browser warning
+  config.headers["ngrok-skip-browser-warning"] = "true";
+
+  // Attach JWT
+  const token = localStorage.getItem("token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+
   return config;
 });
 
