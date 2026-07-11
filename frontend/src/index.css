@@ -1,0 +1,51 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #f7f7fb;
+  color: #1a1a2e;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: #1a1a2e;
+  color: white;
+}
+
+.navbar a { color: white; text-decoration: none; margin-right: 16px; }
+.navbar .brand { font-weight: 700; font-size: 1.2rem; }
+.navbar button {
+  background: #e94560; border: none; color: white; padding: 6px 12px; border-radius: 6px; cursor: pointer;
+}
+
+.container { max-width: 960px; margin: 0 auto; padding: 24px; }
+
+.card {
+  background: white; border-radius: 10px; padding: 16px; margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+
+button.primary {
+  background: #0f3460; color: white; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-size: 0.95rem;
+}
+button.primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+input, select {
+  width: 100%; padding: 8px 10px; margin: 6px 0 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem;
+}
+
+.error { color: #e94560; margin: 8px 0; }
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;
+}
+.badge.pending { background: #ffe8b3; color: #8a5b00; }
+.badge.paid { background: #c9f7d6; color: #0a7a2f; }
+.badge.canceled { background: #ffd0d0; color: #a10000; }
+
+.price { font-weight: 700; color: #0f3460; }
